@@ -94,12 +94,10 @@ const NuevoRegistro = ({ open, handleDialog, addItem }) => {
           id: parsedProductionRecords.length + 1,
           ...newRecord,
         };
-
         const newProductionRecords = JSON.stringify([
           ...parsedProductionRecords,
           newItem,
         ]);
-
         localStorage.setItem("productionRecords", newProductionRecords);
         addItem(newItem);
         handleClose();

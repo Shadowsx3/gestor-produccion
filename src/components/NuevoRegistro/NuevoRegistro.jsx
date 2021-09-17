@@ -81,13 +81,14 @@ const NuevoRegistro = ({ open, handleDialog, addItem }) => {
       const productionRecords = localStorage.getItem("productionRecords");
 
       if (!productionRecords) {
-        const newProductionRecords = JSON.stringify([
-          {
-            id: 1,
-            ...newRecord,
-          },
-        ]);
+        const newItem = {
+          id: 1,
+          ...newRecord,
+        };
+        const newProductionRecords = JSON.stringify([newItem]);
         localStorage.setItem("productionRecords", newProductionRecords);
+        addItem(newItem);
+        handleClose();
       } else {
         const parsedProductionRecords = JSON.parse(productionRecords);
         const newItem = {

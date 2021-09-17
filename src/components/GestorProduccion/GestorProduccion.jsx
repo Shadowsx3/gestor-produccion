@@ -10,6 +10,7 @@ const GestorProduccion = () => {
   const [productionRecords, setProductionRecords] = useState([]);
 
   const addItem = (newItem) => {
+    console.log("llega al rerender");
     setProductionRecords([...productionRecords, newItem]);
   };
 
@@ -41,7 +42,7 @@ const GestorProduccion = () => {
         {productionRecords.length ? (
           <div>
             {productionRecords.map((item) => (
-              <div>
+              <div key={item.id}>
                 Detalle: {item.detalle} | Cantidad: {item.cantidad}
               </div>
             ))}

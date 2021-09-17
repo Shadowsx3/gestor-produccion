@@ -94,7 +94,7 @@ const Login = () => {
       errorText: passwordErrorText,
     },
   } = formFields;
-  console.log("userName", userNameValue);
+
   return (
     <div className="login">
       <Paper elevation={1}>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Button from "@mui/material/Button";
@@ -7,6 +7,20 @@ import "./GestorProduccion.scss";
 
 const GestorProduccion = () => {
   const [handleNewRecord, setHandleNewRecord] = useState(false);
+  const [productionRecords, setProductionRecords] = useState([]);
+
+  const addItem = (newItem) => {
+    setProductionRecords([...productionRecords, newItem]);
+  };
+
+  useEffect(() => {
+    const localStorageProductionRecords = JSON.parse(
+      localStorage.getItem("productionRecords")
+    );
+    if (localStorageProductionRecords) {
+      setProductionRecords(localStorageProductionRecords);
+    }
+  }, []);
 
   return (
     <div className="gestor-produccion">
@@ -23,9 +37,23 @@ const GestorProduccion = () => {
           Nuevo Registro
         </Button>
       </div>
+      <div className="gestor-produccion__datos">
+        {productionRecords.length ? (
+          <div>
+            {productionRecords.map((item) => (
+              <div>
+                Detalle: {item.detalle} | Cantidad: {item.cantidad}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div>No hay registros disponibles</div>
+        )}
+      </div>
       <NuevoRegistro
         open={handleNewRecord}
         handleDialog={() => setHandleNewRecord(false)}
+        addItem={addItem}
       />
     </div>
   );

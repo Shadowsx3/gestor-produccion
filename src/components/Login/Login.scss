@@ -1,0 +1,37 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+
+  &__header {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-style: italic;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      margin-top: 10px;
+    }
+  }
+
+  &__button {
+    margin-top: 20px;
+  }
+
+  &__invalid-credentials {
+    height: 50px;
+    font-size: 10px;
+    color: red;
+  }
+}
+
+.app-logo {
+  height: 200px;
+}

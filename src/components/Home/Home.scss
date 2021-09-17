@@ -1,0 +1,16 @@
+.home {
+  height: 100vh;
+}
+
+.home::before {
+  content: "";
+  background-image: url("./../../shlogo2.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.05;
+}

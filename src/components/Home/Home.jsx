@@ -4,6 +4,7 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import GestorProduccion from "../GestorProduccion/GestorProduccion";
+import GestorVentas from "../GestorVentas/GestorVentas";
 import AdministracionUsuario from "../AdministracionUsuario/AdministracionUsuario";
 import "./Home.scss";
 
@@ -61,7 +62,7 @@ const Home = () => {
           <GestorProduccion />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          Gestor Ventas
+          <GestorVentas />
         </TabPanel>
         <TabPanel value={value} index={2}>
           Informes

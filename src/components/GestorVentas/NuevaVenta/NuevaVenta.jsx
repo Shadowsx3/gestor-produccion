@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 
-const NuevoRegistro = ({ open, handleDialog, addItem }) => {
+const NuevoVenta = ({ open, handleDialog, addItem }) => {
   const BASE_FORM_FIELDS = {
     detalle: {
       value: "",
@@ -78,7 +78,7 @@ const NuevoRegistro = ({ open, handleDialog, addItem }) => {
       });
     } else {
       const newRecord = { detalle: detalleValue, cantidad: cantidadValue };
-      const productionRecords = localStorage.getItem("productionRecords");
+      const productionRecords = localStorage.getItem("ventasRecords");
 
       if (!productionRecords) {
         const newItem = {
@@ -86,7 +86,7 @@ const NuevoRegistro = ({ open, handleDialog, addItem }) => {
           ...newRecord,
         };
         const newProductionRecords = JSON.stringify([newItem]);
-        localStorage.setItem("productionRecords", newProductionRecords);
+        localStorage.setItem("ventasRecords", newProductionRecords);
         addItem(newItem);
         handleClose();
       } else {
@@ -99,7 +99,7 @@ const NuevoRegistro = ({ open, handleDialog, addItem }) => {
           ...parsedProductionRecords,
           newItem,
         ]);
-        localStorage.setItem("productionRecords", newProductionRecords);
+        localStorage.setItem("ventasRecords", newProductionRecords);
         addItem(newItem);
         handleClose();
       }
@@ -126,7 +126,7 @@ const NuevoRegistro = ({ open, handleDialog, addItem }) => {
       aria-labelledby="alert-dialog-title"
       aria-describedby="alert-dialog-description"
     >
-      <DialogTitle id="alert-dialog-title">Nuevo Registro</DialogTitle>
+      <DialogTitle id="alert-dialog-title">Nuevo Venta</DialogTitle>
       <DialogContent>
         <DialogContentText id="alert-dialog-description" width={500}>
           <Grid container spacing={2}>
@@ -174,4 +174,4 @@ const NuevoRegistro = ({ open, handleDialog, addItem }) => {
   );
 };
 
-export default NuevoRegistro;
+export default NuevoVenta;

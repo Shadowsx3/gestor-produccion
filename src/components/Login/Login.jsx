@@ -128,6 +128,11 @@ const Login = () => {
                 helperText={passwordErrorText}
                 required
                 onChange={handleFormFields}
+                onKeyPress={event => {
+                  if (event.key === 'Enter') {
+                      submitLogin(event)
+                  }
+                }}
               />
             </div>
             <div className="login__button">
